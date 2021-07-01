@@ -407,12 +407,18 @@ class App:
         pyxel.load("test1.pyxres")
         pyxel.image(2).load(32,128,"zizou.png")
         pyxel.mouse(True)
+        self.start()
+        pyxel.run(self.update, self.draw)
+
+#リスタート
+    def start(self):
         self.Player = Unit(80,80,20,1,1,None,land,0,0,None,None) #x,y,hp,power,move,exp,LL,draw_x,draw_y,enemymap_x,enemymap_y
         self.EnemyData = [[100,100,3,1,1,1,land,0,64,0,2],[90,40,3,1,1,1,land,0,64,1,0],[30,30,3,1,1,1,land,0,64,0,1]]
         self.Enemy = []
         self.Del = []
         self.gamemode = GAMEMODE.Title 
-        pyxel.run(self.update, self.draw)
+        Unit.keyvalid == True
+        Unit.keyvalid2 == True
 
 #アップデート関数
     def update(self):
@@ -473,7 +479,7 @@ class App:
 #ゲームオーバー
     def update_over(self):
         if pyxel.btnp(pyxel.KEY_SHIFT):
-            self.__init__()
+            self.start()
             self.gamemode = GAMEMODE.Title
 
 #描画関数
