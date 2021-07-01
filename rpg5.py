@@ -1,4 +1,4 @@
-#こんにちは
+#こんにちは2
 from enum import Enum, auto
 import pyxel
 import cv2
